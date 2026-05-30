@@ -1,0 +1,109 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-workspace);
+  padding: 2rem;
+  text-align: center;
+}
+
+.wrapper {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: 4rem 3rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.mountainEmblem {
+  position: relative;
+  width: 60px;
+  height: 40px;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.peak {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 40px solid var(--primary-navy);
+  position: relative;
+}
+
+.peak::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -15px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 20px solid var(--bg-card);
+  opacity: 0.9;
+}
+
+.errorCode {
+  font-family: var(--font-heading);
+  font-size: 6rem;
+  font-weight: 800;
+  color: var(--primary-navy);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -2px;
+}
+
+.errorTitle {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: var(--primary-navy);
+  margin-bottom: 1rem;
+}
+
+.errorDesc {
+  font-family: var(--font-body);
+  color: var(--text-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 2.5rem;
+}
+
+.returnBtn {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  background-color: var(--primary-navy);
+  color: var(--bg-workspace);
+  padding: 0.9rem 1.8rem;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-sm);
+  display: inline-block;
+}
+
+.returnBtn:hover {
+  background-color: var(--secondary-navy);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

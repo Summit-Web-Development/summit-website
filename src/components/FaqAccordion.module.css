@@ -1,0 +1,130 @@
+.section {
+  background-color: var(--bg-workspace);
+  padding: 6rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.faqList {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.item {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.item:hover {
+  border-color: var(--primary-navy);
+  box-shadow: var(--shadow-sm);
+}
+
+.itemOpen {
+  border-color: var(--primary-navy);
+  box-shadow: var(--shadow-md);
+  background-color: var(--bg-card-hover);
+}
+
+.questionButton {
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 1.5rem;
+}
+
+.questionText {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  line-height: 1.4;
+}
+
+/* Plus/Minus Animated Icon */
+.icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconH, .iconV {
+  position: absolute;
+  background-color: var(--primary-navy);
+  transition: var(--transition-smooth);
+}
+
+.iconH {
+  width: 100%;
+  height: 2px;
+}
+
+.iconV {
+  width: 2px;
+  height: 100%;
+}
+
+.itemOpen .iconV {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+.itemOpen .iconH {
+  transform: rotate(180deg);
+}
+
+/* Slide open answer container */
+.answerWrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-speed-normal) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.answerOpen {
+  max-height: 500px; /* arbitrary high value to support content height */
+}
+
+.answerContent {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.answerText {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.6;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
