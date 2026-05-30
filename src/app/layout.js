@@ -1,42 +1,36 @@
-import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-heading",
-  display: "swap",
-});
-
 export const metadata = {
-  title: "Summit Web Solutions | High-Performance Web Development Agency",
-  description: "Summit is a premium web development agency building blazing-fast, responsive web architectures, custom database platforms, and dynamic local SEO engines for small businesses.",
-  metadataBase: new URL("https://summit.vercel.app"),
-  keywords: ["web development agency", "small business website", "custom web development", "nextjs web design", "local seo agency", "web application development"],
+  title: {
+    default: "Summit Webcraft | High-Performance Websites for Service Businesses",
+    template: "%s | Summit Webcraft",
+  },
+  description: "Summit Webcraft builds blazing-fast, lead-generating websites for service businesses across North America. Custom web design, SEO, ads, and AI receptionist services. Toronto-based.",
+  metadataBase: new URL("https://summitwebcraft.com"),
+  keywords: ["web design agency", "custom website design", "web development Toronto", "small business website", "SEO services", "local business website", "web design Canada"],
   openGraph: {
-    title: "Summit Web Solutions | Premium Web Development for Small Businesses",
-    description: "Modular, blazing-fast web architectures, interactive calculator tools, and direct automation pipelines built to grow your digital workflow.",
-    url: "https://summit.vercel.app",
-    siteName: "Summit Web Solutions",
-    locale: "en_US",
+    title: "Summit Webcraft | High-Performance Websites for Service Businesses",
+    description: "Custom web design, SEO, and digital marketing for service businesses across North America. Based in Toronto.",
+    url: "https://summitwebcraft.com",
+    siteName: "Summit Webcraft",
+    locale: "en_CA",
     type: "website",
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
 };
+
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
+    <html lang="en-CA">
       <body>
-        {children}
+        <Navbar />
+        <main style={{ minHeight: "80vh" }}>
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

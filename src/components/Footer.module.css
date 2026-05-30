@@ -1,0 +1,71 @@
+.footer { background: var(--navy-deepest); border-top: 1px solid var(--navy-border); }
+
+.top { padding: 5rem 0 3rem; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+/* Brand col */
+.brand {}
+.logoRow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+.logoMark {
+  width: 36px; height: 36px;
+  background: var(--accent);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900; font-size: 1rem; color: #fff;
+}
+.logoText { font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--text-white); }
+.logoSub { font-weight: 400; color: var(--text-muted); }
+
+.tagline { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem; max-width: 280px; }
+
+.contactBlock { display: flex; flex-direction: column; gap: 0.6rem; }
+.contactItem {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: var(--ease);
+}
+a.contactItem:hover { color: var(--accent-bright); }
+
+/* Link columns */
+.col { display: flex; flex-direction: column; gap: 0.1rem; }
+.colTitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-subtle);
+  margin-bottom: 0.75rem;
+}
+.colTitleSpaced { margin-top: 2rem; }
+.colLink {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  padding: 0.25rem 0;
+  transition: var(--ease);
+}
+.colLink:hover { color: var(--text-white); }
+.colLinkAccent { font-size: 0.8rem; font-weight: 700; color: var(--accent-bright); padding: 0.25rem 0; margin-top: 0.25rem; }
+.colLinkAccent:hover { color: var(--text-white); }
+
+/* Bottom bar */
+.bottom { border-top: 1px solid var(--navy-border); padding: 1.25rem 0; }
+.bottomInner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.copyright { font-size: 0.8rem; color: var(--text-subtle); }
+.legal { display: flex; gap: 1.5rem; }
+.legal a { font-size: 0.8rem; color: var(--text-subtle); transition: var(--ease); }
+.legal a:hover { color: var(--text-muted); }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+  .bottomInner { flex-direction: column; text-align: center; }
+}
