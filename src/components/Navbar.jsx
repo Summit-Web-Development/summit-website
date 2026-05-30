@@ -6,15 +6,6 @@ import Image from "next/image";
 import styles from "./Navbar.module.css";
 import AnimateIn from "./AnimateIn";
 
-const tools = [
-  { label: "ROI Calculator",   href: "/roi-calculator" },
-  { label: "Website Grader",   href: "/tools/website-grader" },
-  { label: "Cost Estimator",   href: "/tools/cost-estimator" },
-  { label: "Colour Palette",   href: "/tools/colour-palette" },
-  { label: "SEO Preview",      href: "/tools/seo-preview" },
-  { label: "Domain Checker",   href: "/tools/domain-checker" },
-];
-
 const areas = [
   { label: "Toronto (HQ)", href: "/service-areas#toronto" },
   { label: "New York",     href: "/service-areas#new-york" },
@@ -27,7 +18,6 @@ const areas = [
 export default function Navbar() {
   const [scrolled, setScrolled]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(false);
-  const [mobileTools, setMobileTools]   = useState(false);
   const [mobileAreas, setMobileAreas]   = useState(false);
 
   useEffect(() => {
@@ -47,7 +37,7 @@ export default function Navbar() {
     <>
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
         <AnimateIn type="fade-down" duration={600}>
-          <div className={styles.inner}>
+          <div className={styles.inner} style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             {/* Logo */}
             <Link href="/" className={styles.logo} onClick={close} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <div style={{ position: 'relative', width: '40px', height: '40px', borderRadius: '50%', overflow: 'hidden' }}>
@@ -56,37 +46,24 @@ export default function Navbar() {
               <span className={styles.logoText}>Summit <span className={styles.logoSub}>Webcraft</span></span>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className={styles.desktopNav}>
-              <Link href="/services" className={styles.navBtn}>
+            {/* Desktop Navigation - Centered Layout Engine */}
+            <nav className={styles.desktopNav} style={{ display: "flex", alignItems: "center", gap: "1.5rem", height: "100%" }}>
+              <Link href="/services" className={styles.navBtn} style={{ display: "inline-flex", alignItems: "center", height: "100%" }}>
                 Services
               </Link>
-              <Link href="/pricing"       className={styles.navLink}>Pricing</Link>
-              <Link href="/our-work"      className={styles.navLink}>Our Work</Link>
-              <Link href="/testimonials"  className={styles.navLink}>Testimonials</Link>
-              <Link href="/about"         className={styles.navLink}>About</Link>
-              <Link href="/timeline"      className={styles.navLink}>Timeline</Link>
-
-              {/* Free Tools Dropdown */}
-              <div className={styles.dropGroup}>
-                <button className={styles.navBtn}>
-                  Free Tools <span className={styles.chevron}>▾</span>
-                </button>
-                <div className={styles.dropdown}>
-                  <p className={styles.dropLabel}>Free Tools</p>
-                  {tools.map(t => (
-                    <Link key={t.href} href={t.href} className={styles.dropItem}>
-                      {t.label}
-                    </Link>
-                  ))}
-                  <div className={styles.dropDivider} />
-                  <Link href="/tools" className={styles.dropAll}>All Tools →</Link>
-                </div>
+              
+              {/* Core Links Flat Baseline Grouping */}
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "1.5rem" }}>
+                <Link href="/pricing"       className={styles.navLink} style={{ display: "inline-flex", alignItems: "center" }}>Pricing</Link>
+                <Link href="/our-work"      className={styles.navLink} style={{ display: "inline-flex", alignItems: "center" }}>Our Work</Link>
+                <Link href="/testimonials"  className={styles.navLink} style={{ display: "inline-flex", alignItems: "center" }}>Testimonials</Link>
+                <Link href="/about"         className={styles.navLink} style={{ display: "inline-flex", alignItems: "center" }}>About</Link>
+                <Link href="/timeline"      className={styles.navLink} style={{ display: "inline-flex", alignItems: "center" }}>Timeline</Link>
               </div>
 
               {/* Areas Dropdown */}
-              <div className={styles.dropGroup}>
-                <button className={styles.navBtn}>
+              <div className={styles.dropGroup} style={{ display: "inline-flex", alignItems: "center" }}>
+                <button className={styles.navBtn} style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
                   Areas <span className={styles.chevron}>▾</span>
                 </button>
                 <div className={styles.dropdown}>
@@ -101,10 +78,10 @@ export default function Navbar() {
                 </div>
               </div>
 
-              <Link href="/contact" className={styles.navLink}>Contact</Link>
+              <Link href="/contact" className={styles.navLink} style={{ display: "inline-flex", alignItems: "center" }}>Contact</Link>
             </nav>
 
-            <Link href="/contact" className={`${styles.ctaBtn} btn-primary`}>
+            <Link href="/contact" className={`${styles.ctaBtn} btn-primary`} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
               Get a Quote
             </Link>
 
@@ -114,6 +91,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(o => !o)}
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
+              style={{ display: "none" }} /* Controlled via standard global media queries inside Navbar.module.css */
             >
               <span /><span /><span />
             </button>
@@ -131,23 +109,6 @@ export default function Navbar() {
           <Link href="/testimonials"  className={styles.drawerLink} onClick={close}>Testimonials</Link>
           <Link href="/about"         className={styles.drawerLink} onClick={close}>About</Link>
           <Link href="/timeline"      className={styles.drawerLink} onClick={close}>Timeline</Link>
-
-          {/* Tools Accordion */}
-          <div className={styles.drawerAccordion}>
-            <button className={styles.drawerAccBtn} onClick={() => setMobileTools(o => !o)}>
-              Free Tools <span>{mobileTools ? "▴" : "▾"}</span>
-            </button>
-            {mobileTools && (
-              <div className={styles.drawerSub}>
-                {tools.map(t => (
-                  <Link key={t.href} href={t.href} className={styles.drawerSubLink} onClick={close}>
-                    {t.label}
-                  </Link>
-                ))}
-                <Link href="/tools" className={styles.drawerSubAll} onClick={close}>All Tools →</Link>
-              </div>
-            )}
-          </div>
 
           {/* Service Areas Accordion */}
           <div className={styles.drawerAccordion}>
