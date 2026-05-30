@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Apex Heating & Air",
+    "industry": "HVAC",
+    "location": "Toronto, ON",
+    "coordinates": [43.6532, -79.3832],
+    "url": "https://apexheating.example.com",
+    "results": "+140% Lead Volume"
+  },
+  {
+    "id": 2,
+    "name": "Miller & Associates",
+    "industry": "Legal",
+    "location": "New York, NY",
+    "coordinates": [40.7128, -74.0060],
+    "url": "https://millerlaw.example.com",
+    "results": "Page 1 Local Rankings"
+  },
+  {
+    "id": 3,
+    "name": "BuildRight Contractors",
+    "industry": "Construction",
+    "location": "Chicago, IL",
+    "coordinates": [41.8781, -87.6298],
+    "url": "https://buildright.example.com",
+    "results": "3x Traffic Increase"
+  },
+  {
+    "id": 4,
+    "name": "Elite Landscaping",
+    "industry": "Landscaping",
+    "location": "Los Angeles, CA",
+    "coordinates": [34.0522, -118.2437],
+    "url": "https://elitelandscapes.example.com",
+    "results": "Dominating Local Maps"
+  },
+  {
+    "id": 5,
+    "name": "OceanView Dental",
+    "industry": "Healthcare",
+    "location": "Miami, FL",
+    "coordinates": [25.7617, -80.1918],
+    "url": "https://oceanviewdental.example.com",
+    "results": "+50 New Patients/mo"
+  },
+  {
+    "id": 6,
+    "name": "Pacific Plumbing Pro",
+    "industry": "Plumbing",
+    "location": "Vancouver, BC",
+    "coordinates": [49.2827, -123.1207],
+    "url": "https://pacificplumbing.example.com",
+    "results": "200% ROI in 3 Months"
+  }
+]

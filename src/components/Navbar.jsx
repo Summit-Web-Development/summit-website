@@ -4,14 +4,15 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Navbar.module.css";
+import AnimateIn from "./AnimateIn";
 
 const services = [
-  { label: "Custom Web Design",            href: "/services#web-design",    icon: "🎨" },
-  { label: "Web Development",              href: "/services#web-dev",        icon: "💻" },
-  { label: "SEO & Performance",            href: "/services#seo",            icon: "🔍" },
-  { label: "Google, Facebook & Instagram Ads", href: "/services#ads",       icon: "📣" },
-  { label: "AI Receptionist",              href: "/services#ai",             icon: "🤖" },
-  { label: "Ongoing Support & Growth",     href: "/services#support",        icon: "📈" },
+  { label: "Custom Web Design",            href: "/services#web-design" },
+  { label: "Web Development",              href: "/services#web-dev" },
+  { label: "SEO & Performance",            href: "/services#seo" },
+  { label: "Google, Facebook & Instagram Ads", href: "/services#ads" },
+  { label: "AI Receptionist",              href: "/services#ai" },
+  { label: "Ongoing Support & Growth",     href: "/services#support" },
 ];
 
 const tools = [
@@ -55,100 +56,96 @@ export default function Navbar() {
   return (
     <>
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
-        <div className={styles.inner}>
-          {/* Logo */}
-          <Link href="/" className={styles.logo} onClick={close}>
-            <div className={styles.logoMark}>
-              <Image src="/logo.png" alt="Summit logo" width={30} height={30} priority className={styles.logoImg} />
-            </div>
-            <span className={styles.logoText}>Summit <span className={styles.logoSub}>Webcraft</span></span>
-          </Link>
-
-          {/* Desktop nav */}
-          <nav className={styles.desktopNav}>
-            {/* Services dropdown */}
-            <div className={styles.dropGroup}>
-              <button className={styles.navBtn}>
-                Services <span className={styles.chevron}>▾</span>
-              </button>
-              <div className={styles.dropdown}>
-                <p className={styles.dropLabel}>What We Build</p>
-                {services.map(s => (
-                  <Link key={s.href} href={s.href} className={styles.dropItem}>
-                    <span className={styles.dropIcon}>{s.icon}</span>{s.label}
-                  </Link>
-                ))}
-                <div className={styles.dropDivider} />
-                <Link href="/services" className={styles.dropAll}>View All Services →</Link>
+        <AnimateIn type="fade-down" duration={600}>
+          <div className={styles.inner}>
+            {/* Logo */}
+            <Link href="/" className={styles.logo} onClick={close} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{ position: 'relative', width: '40px', height: '40px', borderRadius: '50%', overflow: 'hidden' }}>
+                <Image src="/logo.jpg" alt="Summit Webcraft Logo" fill style={{ objectFit: 'cover' }} priority />
               </div>
-            </div>
+              <span className={styles.logoText}>Summit <span className={styles.logoSub}>Webcraft</span></span>
+            </Link>
 
-            <Link href="/pricing"       className={styles.navLink}>Pricing</Link>
-            <Link href="/our-work"      className={styles.navLink}>Our Work</Link>
-            <Link href="/testimonials"  className={styles.navLink}>Testimonials</Link>
-            <Link href="/about"         className={styles.navLink}>About</Link>
-            <Link href="/blog"          className={styles.navLink}>Blog</Link>
-
-            {/* Free Tools dropdown */}
-            <div className={styles.dropGroup}>
-              <button className={styles.navBtn}>
-                Free Tools <span className={styles.chevron}>▾</span>
-              </button>
-              <div className={styles.dropdown}>
-                <p className={styles.dropLabel}>Free Tools</p>
-                {tools.map(t => (
-                  <Link key={t.href} href={t.href} className={styles.dropItem}>
-                    <span className={styles.dropIcon}>🔧</span>{t.label}
-                  </Link>
-                ))}
-                <div className={styles.dropDivider} />
-                <Link href="/tools" className={styles.dropAll}>All Tools →</Link>
+            {/* Desktop nav */}
+            <nav className={styles.desktopNav}>
+              <div className={styles.dropGroup}>
+                <button className={styles.navBtn}>
+                  Services <span className={styles.chevron}>▾</span>
+                </button>
+                <div className={styles.dropdown}>
+                  <p className={styles.dropLabel}>What We Build</p>
+                  {services.map(s => (
+                    <Link key={s.href} href={s.href} className={styles.dropItem}>
+                      {s.label}
+                    </Link>
+                  ))}
+                  <div className={styles.dropDivider} />
+                  <Link href="/services" className={styles.dropAll}>View All Services →</Link>
+                </div>
               </div>
-            </div>
 
-            {/* Service Areas dropdown */}
-            <div className={styles.dropGroup}>
-              <button className={styles.navBtn}>
-                Areas <span className={styles.chevron}>▾</span>
-              </button>
-              <div className={styles.dropdown}>
-                <p className={styles.dropLabel}>Service Areas</p>
-                {areas.map(a => (
-                  <Link key={a.href} href={a.href} className={styles.dropItem}>
-                    <span className={styles.dropIcon}>📍</span>{a.label}
-                  </Link>
-                ))}
-                <div className={styles.dropDivider} />
-                <Link href="/service-areas" className={styles.dropAll}>View All Areas →</Link>
+              <Link href="/pricing"       className={styles.navLink}>Pricing</Link>
+              <Link href="/our-work"      className={styles.navLink}>Our Work</Link>
+              <Link href="/testimonials"  className={styles.navLink}>Testimonials</Link>
+              <Link href="/about"         className={styles.navLink}>About</Link>
+              <Link href="/timeline"      className={styles.navLink}>Timeline</Link>
+
+              <div className={styles.dropGroup}>
+                <button className={styles.navBtn}>
+                  Free Tools <span className={styles.chevron}>▾</span>
+                </button>
+                <div className={styles.dropdown}>
+                  <p className={styles.dropLabel}>Free Tools</p>
+                  {tools.map(t => (
+                    <Link key={t.href} href={t.href} className={styles.dropItem}>
+                      {t.label}
+                    </Link>
+                  ))}
+                  <div className={styles.dropDivider} />
+                  <Link href="/tools" className={styles.dropAll}>All Tools →</Link>
+                </div>
               </div>
-            </div>
 
-            <Link href="/contact" className={styles.navLink}>Contact</Link>
-          </nav>
+              <div className={styles.dropGroup}>
+                <button className={styles.navBtn}>
+                  Areas <span className={styles.chevron}>▾</span>
+                </button>
+                <div className={styles.dropdown}>
+                  <p className={styles.dropLabel}>Service Areas</p>
+                  {areas.map(a => (
+                    <Link key={a.href} href={a.href} className={styles.dropItem}>
+                      {a.label}
+                    </Link>
+                  ))}
+                  <div className={styles.dropDivider} />
+                  <Link href="/service-areas" className={styles.dropAll}>View All Areas →</Link>
+                </div>
+              </div>
 
-          {/* Desktop CTA */}
-          <Link href="/contact" className={`${styles.ctaBtn} btn-primary`}>
-            Get a Free Quote
-          </Link>
+              <Link href="/contact" className={styles.navLink}>Contact</Link>
+            </nav>
 
-          {/* Hamburger */}
-          <button
-            className={`${styles.hamburger} ${mobileOpen ? styles.hamburgerOpen : ""}`}
-            onClick={() => setMobileOpen(o => !o)}
-            aria-label="Toggle menu"
-            aria-expanded={mobileOpen}
-          >
-            <span /><span /><span />
-          </button>
-        </div>
+            <Link href="/contact" className={`${styles.ctaBtn} btn-primary`}>
+              Get a Quote
+            </Link>
+
+            <button
+              className={`${styles.hamburger} ${mobileOpen ? styles.hamburgerOpen : ""}`}
+              onClick={() => setMobileOpen(o => !o)}
+              aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+            >
+              <span /><span /><span />
+            </button>
+          </div>
+        </AnimateIn>
       </header>
 
       {/* Mobile Drawer */}
       <div className={`${styles.drawer} ${mobileOpen ? styles.drawerOpen : ""}`}>
         <nav className={styles.drawerNav}>
-          <Link href="/"              className={styles.drawerLink} onClick={close}>Home</Link>
+          <Link href="/" className={styles.drawerLink} onClick={close}>Home</Link>
 
-          {/* Services accordion */}
           <div className={styles.drawerAccordion}>
             <button className={styles.drawerAccBtn} onClick={() => setMobileServices(o => !o)}>
               Services <span>{mobileServices ? "▴" : "▾"}</span>
@@ -169,9 +166,8 @@ export default function Navbar() {
           <Link href="/our-work"      className={styles.drawerLink} onClick={close}>Our Work</Link>
           <Link href="/testimonials"  className={styles.drawerLink} onClick={close}>Testimonials</Link>
           <Link href="/about"         className={styles.drawerLink} onClick={close}>About</Link>
-          <Link href="/blog"          className={styles.drawerLink} onClick={close}>Blog</Link>
+          <Link href="/timeline"      className={styles.drawerLink} onClick={close}>Timeline</Link>
 
-          {/* Tools accordion */}
           <div className={styles.drawerAccordion}>
             <button className={styles.drawerAccBtn} onClick={() => setMobileTools(o => !o)}>
               Free Tools <span>{mobileTools ? "▴" : "▾"}</span>
@@ -188,7 +184,6 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Areas accordion */}
           <div className={styles.drawerAccordion}>
             <button className={styles.drawerAccBtn} onClick={() => setMobileAreas(o => !o)}>
               Service Areas <span>{mobileAreas ? "▴" : "▾"}</span>
@@ -205,12 +200,7 @@ export default function Navbar() {
             )}
           </div>
 
-          <Link href="/contact"       className={styles.drawerLink} onClick={close}>Contact</Link>
-
-          <Link href="/contact" className={`${styles.drawerCta} btn-primary`} onClick={close}>
-            Get a Free Quote
-          </Link>
-          <a href="tel:4167007499" className={styles.drawerPhone}>📞 416-700-7499</a>
+          <Link href="/contact" className={styles.drawerLink} onClick={close}>Contact</Link>
         </nav>
       </div>
     </>
