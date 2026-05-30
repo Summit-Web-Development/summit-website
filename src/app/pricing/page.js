@@ -1,105 +1,197 @@
+"use client";
+
 import CTABanner from "../../components/CTABanner";
 import Link from "next/link";
 
 export default function PricingPage() {
   const tiers = [
     {
-      name: "Static Landing Pad",
+      name: "Essential Core",
       price: "$300",
-      desc: "Perfect for single-service businesses needing a quick, high-converting digital footprint.",
-      features: ["Up to 3 pages", "Contact Form Integration", "Basic SEO Setup", "Mobile Responsive", "Lightning Fast Load Times"],
+      desc: "A clean, ultra-fast 1-page digital storefront engineered to claim your local Google Maps authority.",
+      features: [
+        "Custom UI/UX Architecture",
+        "Mobile-First Responsive Design",
+        "Contact Form Endpoint Integration",
+        "Basic Local SEO Initialization",
+        "Global Edge Network Deployment"
+      ],
       highlight: false
     },
     {
-      name: "Dynamic Engine",
-      price: "$800",
-      desc: "For growing businesses that need content management and advanced features.",
-      features: ["Up to 10 pages", "CMS Integration (Blog/Portfolio)", "Advanced Local SEO", "Custom Animations", "Analytics Dashboard"],
+      name: "Growth Engine",
+      price: "$950",
+      desc: "Full multi-page Next.js architecture custom-coded for service businesses actively driving lead generation.",
+      features: [
+        "Advanced Multi-Page Architecture",
+        "React & Next.js Framework Core",
+        "Deep Conversion Rate Optimization (CRO)",
+        "Code-Level Technical SEO Framework",
+        "Sub-Second Asset Speed Profiles"
+      ],
       highlight: true
     },
     {
-      name: "Clean Break",
-      price: "$500",
-      desc: "One-off custom development for those who want to manage their own hosting.",
-      features: ["Custom Codebase", "Full Source Code Handover", "Deployment Instructions", "No Monthly Fees", "1 Month Bug Support"],
+      name: "Market Dominator",
+      price: "$2,000",
+      desc: "Complete digital saturation. Built for regional service firms looking to systematically overtake incumbents.",
+      features: [
+        "Comprehensive Sub-Service Page Expansion",
+        "Competitor Keyword Capture Mapping",
+        "High-Fidelity Wireframing Assets",
+        "Advanced Dynamic UI Component Stacks",
+        "Priority Post-Launch Asset Scaling"
+      ],
       highlight: false
     }
   ];
 
   return (
     <>
+      {/* Hero Header */}
       <div className="page-hero section-dark">
         <div className="container" style={{ textAlign: "center", maxWidth: "800px" }}>
-          <span className="section-label" style={{ justifyContent: "center" }}>Transparent Pricing</span>
-          <h1 style={{ fontSize: "3rem", marginBottom: "1rem" }}>Invest in your digital growth.</h1>
+          <span className="section-label" style={{ justifyContent: "center" }}>Transparent Value</span>
+          <h1 style={{ fontSize: "3.5rem", marginBottom: "1rem" }}>Predictable engineering pricing.</h1>
           <p style={{ fontSize: "1.1rem", color: "var(--text-dim)" }}>
-            No hidden fees. No confusing jargon. Just high-performance websites that deliver a massive return on investment.
+            No agency bloat. No hidden software markups. High-performance code built to convert local traffic into paying clients.
           </p>
         </div>
       </div>
 
-      <section className="section-card" style={{ padding: "4rem 0" }}>
+      {/* Upfront Architecture Section */}
+      <section className="section-light" style={{ padding: "5rem 0 3rem 0" }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem", marginBottom: "5rem" }}>
+          <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
+            <h2 style={{ fontSize: "2.2rem", color: "var(--text-navy, #0B2545)", marginBottom: "0.5rem" }}>Core Upfront Projects</h2>
+            <p style={{ color: "#475569" }}>Select the baseline infrastructure for your business asset.</p>
+          </div>
+
+          <div style={{ 
+            display: "grid", 
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", 
+            gap: "2.5rem", 
+            alignItems: "stretch",
+            marginBottom: "6rem" 
+          }}>
             {tiers.map((tier, i) => (
-              <div key={i} className={`card-dark ${tier.highlight ? 'highlight-tier' : ''}`} style={{ 
-                padding: "3rem 2rem", 
-                display: "flex", 
-                flexDirection: "column",
-                position: "relative",
-                border: tier.highlight ? "2px solid var(--accent)" : undefined,
-                transform: tier.highlight ? "translateY(-10px)" : undefined,
-                boxShadow: tier.highlight ? "var(--glow)" : undefined
-              }}>
+              <div 
+                key={i} 
+                className="card-light" 
+                style={{ 
+                  padding: "3rem 2rem 2.5rem 2rem", 
+                  display: "flex", 
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  position: "relative",
+                  backgroundColor: "#FFFFFF",
+                  borderRadius: "12px",
+                  border: tier.highlight ? "2px solid var(--accent, #0B2545)" : "1px solid rgba(0,0,0,0.08)",
+                  boxShadow: tier.highlight ? "0 12px 40px rgba(11, 37, 69, 0.08)" : "0 4px 20px rgba(0,0,0,0.02)"
+                }}
+              >
                 {tier.highlight && (
-                  <div style={{ position: "absolute", top: 0, left: "50%", transform: "translate(-50%, -50%)", background: "var(--accent)", color: "white", padding: "0.25rem 1rem", borderRadius: "20px", fontSize: "0.8rem", fontWeight: "bold" }}>
-                    MOST POPULAR
-                  </div>
+                  <span style={{
+                    position: "absolute",
+                    top: "-14px",
+                    right: "24px",
+                    background: "var(--accent, #0B2545)",
+                    color: "#F4F4F2",
+                    padding: "5px 14px",
+                    borderRadius: "20px",
+                    fontSize: "0.75rem",
+                    fontWeight: "700",
+                    textTransform: "uppercase",
+                    letterSpacing: "1px"
+                  }}>
+                    Most Popular
+                  </span>
                 )}
-                <h3 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>{tier.name}</h3>
-                <div style={{ fontSize: "3rem", fontWeight: 900, color: "var(--text-white)", marginBottom: "1rem" }}>
-                  {tier.price} <span style={{ fontSize: "1rem", color: "var(--text-muted)", fontWeight: 400 }}>upfront</span>
+
+                <div>
+                  <h3 style={{ fontSize: "1.6rem", color: "var(--text-navy, #0B2545)", fontWeight: "700", marginBottom: "1rem" }}>{tier.name}</h3>
+                  <div style={{ fontSize: "3rem", fontWeight: "900", color: "var(--text-navy, #0B2545)", marginBottom: "1rem", display: "flex", alignItems: "baseline", gap: "0.5rem" }}>
+                    {tier.price}
+                    <span style={{ fontSize: "0.95rem", color: "#64748B", fontWeight: "500", textTransform: "lowercase" }}>one-time setup</span>
+                  </div>
+                  <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: "1.6", marginBottom: "2rem" }}>{tier.desc}</p>
+                  
+                  <div style={{ marginBottom: "2.5rem" }}>
+                    <h4 style={{ color: "var(--text-navy, #0B2545)", fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "1px", fontWeight: "750", marginBottom: "1rem" }}>Included Features:</h4>
+                    <ul style={{ paddingLeft: "0", listStyle: "none", display: "flex", flexDirection: "column", gap: "0.8rem" }}>
+                      {tier.features.map((f, j) => (
+                        <li key={j} style={{ color: "#1E293B", fontSize: "0.95rem", fontWeight: "500", display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                          <span style={{ color: "var(--accent, #0B2545)", fontWeight: "900" }}>✓</span> {f}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <p style={{ color: "var(--text-dim)", marginBottom: "2rem", flexGrow: 1 }}>{tier.desc}</p>
-                <ul className="check-list" style={{ marginBottom: "2rem" }}>
-                  {tier.features.map((f, j) => <li key={j}>{f}</li>)}
-                </ul>
-                <Link href="/contact" className={tier.highlight ? "btn-primary" : "btn-outline"} style={{ width: "100%", justifyContent: "center" }}>
-                  Get Started
-                </Link>
+
+                <div>
+                  <Link href="/contact" className="btn-light" style={{ display: "block", textAlign: "center", width: "100%" }}>
+                    Initialize Project Intake
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <h2 style={{ fontSize: "2rem", marginBottom: "1rem" }}>Monthly Support Matrix</h2>
-            <p style={{ color: "var(--text-dim)", maxWidth: "600px", margin: "0 auto" }}>
-              Keep your website secure, updated, and growing with our optional support plans.
+      {/* Monthly Subscriptions Section */}
+      <section style={{ backgroundColor: "#F8FAFC", padding: "5rem 0", borderTop: "1px solid rgba(0,0,0,0.04)" }}>
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+            <h2 style={{ fontSize: "2.2rem", color: "var(--text-navy, #0B2545)", marginBottom: "0.5rem" }}>Ongoing Monthly Operations</h2>
+            <p style={{ color: "#64748B", maxWidth: "600px", margin: "0 auto" }}>
+              Keep your infrastructure live, secure, and actively capturing business queries with an ongoing service tier.
             </p>
           </div>
 
-          <div className="card-dark" style={{ overflow: "hidden" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", borderBottom: "1px solid var(--navy-border)", padding: "1.5rem", background: "var(--navy-primary)", fontWeight: "bold", fontSize: "1.1rem" }}>
-              <div>Features</div>
-              <div style={{ textAlign: "center" }}>Bronze ($50/mo)</div>
-              <div style={{ textAlign: "center" }}>Silver ($75/mo)</div>
-              <div style={{ textAlign: "center" }}>Gold ($100/mo)</div>
-            </div>
-            {[
-              { f: "Premium Hosting", b: "✓", s: "✓", g: "✓" },
-              { f: "SSL Certificate", b: "✓", s: "✓", g: "✓" },
-              { f: "Monthly Analytics Report", b: "✓", s: "✓", g: "✓" },
-              { f: "Content Updates", b: "1 hr", s: "3 hrs", g: "Unlimited" },
-              { f: "Priority Support", b: "-", s: "24h SLA", g: "1h SLA" },
-              { f: "Ongoing SEO Optimization", b: "-", s: "-", g: "✓" },
-            ].map((row, i) => (
-              <div key={i} style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", borderBottom: i === 5 ? "none" : "1px solid var(--navy-border)", padding: "1rem 1.5rem" }}>
-                <div style={{ color: "var(--text-dim)" }}>{row.f}</div>
-                <div style={{ textAlign: "center", color: row.b === "-" ? "var(--text-muted)" : "var(--text-white)", fontWeight: row.b !== "-" ? "bold" : "normal" }}>{row.b}</div>
-                <div style={{ textAlign: "center", color: row.s === "-" ? "var(--text-muted)" : "var(--text-white)", fontWeight: row.s !== "-" ? "bold" : "normal" }}>{row.s}</div>
-                <div style={{ textAlign: "center", color: row.g === "-" ? "var(--text-muted)" : "var(--text-white)", fontWeight: row.g !== "-" ? "bold" : "normal" }}>{row.g}</div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2.5rem", maxWidth: "900px", margin: "0 auto" }}>
+            
+            {/* Maintenance Option */}
+            <div style={{ backgroundColor: "#FFFFFF", padding: "2.5rem", borderRadius: "12px", border: "1px solid rgba(0,0,0,0.06)", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+              <div>
+                <h3 style={{ fontSize: "1.4rem", color: "var(--text-navy, #0B2545)", fontWeight: "700", marginBottom: "0.5rem" }}>Basic Network Maintenance</h3>
+                <div style={{ fontSize: "2.5rem", fontWeight: "900", color: "var(--text-navy, #0B2545)", marginBottom: "1.5rem" }}>
+                  $49<span style={{ fontSize: "0.95rem", color: "#64748B", fontWeight: "500" }}> / mo</span>
+                </div>
+                <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: "1.6", marginBottom: "2rem" }}>
+                  Essential core protection keeping your engine online on the global edge network with dedicated oversight.
+                </p>
+                <ul style={{ paddingLeft: "0", listStyle: "none", display: "flex", flexDirection: "column", gap: "0.8rem", marginBottom: "2rem" }}>
+                  <li style={{ color: "#1E293B", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "0.75rem" }}><span style={{ color: "var(--accent, #0B2545)" }}>✓</span> 24/7 Global Uptime Monitoring</li>
+                  <li style={{ color: "#1E293B", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "0.75rem" }}><span style={{ color: "var(--accent, #0B2545)" }}>✓</span> Security Patching & Node Updates</li>
+                  <li style={{ color: "#1E293B", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "0.75rem" }}><span style={{ color: "var(--accent, #0B2545)" }}>✓</span> Edge Network Hosting Management</li>
+                  <li style={{ color: "#1E293B", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "0.75rem" }}><span style={{ color: "var(--accent, #0B2545)" }}>✓</span> Standard Inbound Form Tracking</li>
+                </ul>
               </div>
-            ))}
+              <Link href="/contact" className="btn-light" style={{ display: "block", textAlign: "center", width: "100%" }}>Select Basic Management</Link>
+            </div>
+
+            {/* AI Option */}
+            <div style={{ backgroundColor: "#FFFFFF", padding: "2.5rem", borderRadius: "12px", border: "2px solid var(--accent, #0B2545)", display: "flex", flexDirection: "column", justifyContent: "space-between", position: "relative" }}>
+              <span style={{ position: "absolute", top: "-14px", right: "24px", background: "var(--accent, #0B2545)", color: "#F4F4F2", padding: "4px 12px", borderRadius: "20px", fontSize: "0.7rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px" }}>High Efficiency</span>
+              <div>
+                <h3 style={{ fontSize: "1.4rem", color: "var(--text-navy, #0B2545)", fontWeight: "700", marginBottom: "0.5rem" }}>AI Auto-Intake Engine</h3>
+                <div style={{ fontSize: "2.5rem", fontWeight: "900", color: "var(--text-navy, #0B2545)", marginBottom: "1.5rem" }}>
+                  $149<span style={{ fontSize: "0.95rem", color: "#64748B", fontWeight: "500" }}> / mo</span>
+                </div>
+                <p style={{ color: "#475569", fontSize: "0.95rem", lineHeight: "1.6", marginBottom: "2rem" }}>
+                  Deploys a custom-trained conversational neural handler to manage, qualify, and book clients automatically 24/7.
+                </p>
+                <ul style={{ paddingLeft: "0", listStyle: "none", display: "flex", flexDirection: "column", gap: "0.8rem", marginBottom: "2rem" }}>
+                  <li style={{ color: "#1E293B", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "0.75rem" }}><span style={{ color: "var(--accent, #0B2545)", fontWeight: "900" }}>✓</span> Includes All Maintenance Protocols</li>
+                  <li style={{ color: "#1E293B", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "0.75rem" }}><span style={{ color: "var(--accent, #0B2545)", fontWeight: "900" }}>✓</span> 24/7 Custom Trained AI Receptionist</li>
+                  <li style={{ color: "#1E293B", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "0.75rem" }}><span style={{ color: "var(--accent, #0B2545)", fontWeight: "900" }}>✓</span> Direct Operational Calendar Sync</li>
+                  <li style={{ color: "#1E293B", fontSize: "0.95rem", display: "flex", alignItems: "center", gap: "0.75rem" }}><span style={{ color: "var(--accent, #0B2545)", fontWeight: "900" }}>✓</span> Weekly Prompt Logic Calibration</li>
+                </ul>
+              </div>
+              <Link href="/contact" className="btn-light" style={{ display: "block", textAlign: "center", width: "100%", background: "var(--accent, #0B2545)", color: "#FFFFFF" }}>Deploy AI Operations</Link>
+            </div>
+
           </div>
         </div>
       </section>

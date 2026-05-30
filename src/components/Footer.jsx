@@ -54,7 +54,7 @@ export default function Footer() {
               <div className={styles.brand}>
                 <div className={styles.logoRow} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <div style={{ position: 'relative', width: '40px', height: '40px', borderRadius: '50%', overflow: 'hidden' }}>
-                    <Image src="/logo.jpg" alt="Summit Webcraft Logo" fill style={{ objectFit: 'cover' }} />
+                    <Image src="/logo_noname.png" alt="Summit Webcraft Logo" fill style={{ objectFit: 'cover' }} />
                   </div>
                   <span className={styles.logoText}>Summit <span className={styles.logoSub}>Webcraft</span></span>
                 </div>
