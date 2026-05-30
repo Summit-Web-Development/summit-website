@@ -1,49 +1,50 @@
-.section { padding: 5rem 0; background: var(--navy-deepest); }
-
-.card {
+/* ── Section 5: CTA Banner ── */
+.section {
+  background: var(--bg-base);
+  padding: clamp(4rem, 8vw, 6.5rem) 0;
+  border-top: 1px solid var(--border);
   position: relative;
-  background: var(--navy-card);
-  border: 1px solid var(--navy-border-strong);
-  border-radius: var(--radius-xl);
-  padding: 4rem 3rem;
-  text-align: center;
   overflow: hidden;
 }
 
-.glow {
+.section::before {
+  content: '';
   position: absolute;
-  top: -60px; left: 50%; transform: translateX(-50%);
-  width: 500px; height: 200px;
-  background: radial-gradient(ellipse at center, rgba(79,126,255,0.18) 0%, transparent 70%);
+  bottom: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(ellipse at center, rgba(59,130,246,0.1) 0%, transparent 65%);
   pointer-events: none;
 }
 
-.content { position: relative; z-index: 1; }
+.inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
 
-.title {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 800;
+.h2 {
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  font-weight: 900;
   color: var(--text-white);
-  margin-bottom: 1rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  margin-bottom: 1.1rem;
 }
 
-.subtitle {
+.sub {
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  color: var(--text-dim);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto 2.25rem;
+}
+
+.btn {
+  padding: 1rem 2.25rem;
   font-size: 1.05rem;
-  color: var(--text-muted);
-  max-width: 560px;
-  margin: 0 auto 2rem;
-  line-height: 1.6;
-}
-
-.actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
-
-.trust { font-size: 0.8rem; color: var(--text-subtle); letter-spacing: 0.3px; }
-
-@media (max-width: 600px) {
-  .card { padding: 2.5rem 1.5rem; }
-  .actions { flex-direction: column; align-items: center; }
-  .actions a { width: 100%; text-align: center; justify-content: center; }
 }
