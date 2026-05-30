@@ -6,15 +6,6 @@ import Image from "next/image";
 import styles from "./Navbar.module.css";
 import AnimateIn from "./AnimateIn";
 
-const services = [
-  { label: "Custom Web Design",            href: "/services#web-design" },
-  { label: "Web Development",              href: "/services#web-dev" },
-  { label: "SEO & Performance",            href: "/services#seo" },
-  { label: "Google, Facebook & Instagram Ads", href: "/services#ads" },
-  { label: "AI Receptionist",              href: "/services#ai" },
-  { label: "Ongoing Support & Growth",     href: "/services#support" },
-];
-
 const tools = [
   { label: "ROI Calculator",   href: "/roi-calculator" },
   { label: "Website Grader",   href: "/tools/website-grader" },
@@ -36,7 +27,6 @@ const areas = [
 export default function Navbar() {
   const [scrolled, setScrolled]         = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(false);
-  const [mobileServices, setMobileServices] = useState(false);
   const [mobileTools, setMobileTools]   = useState(false);
   const [mobileAreas, setMobileAreas]   = useState(false);
 
@@ -66,30 +56,18 @@ export default function Navbar() {
               <span className={styles.logoText}>Summit <span className={styles.logoSub}>Webcraft</span></span>
             </Link>
 
-            {/* Desktop nav */}
+            {/* Desktop Navigation */}
             <nav className={styles.desktopNav}>
-              <div className={styles.dropGroup}>
-                <button className={styles.navBtn}>
-                  Services <span className={styles.chevron}>▾</span>
-                </button>
-                <div className={styles.dropdown}>
-                  <p className={styles.dropLabel}>What We Build</p>
-                  {services.map(s => (
-                    <Link key={s.href} href={s.href} className={styles.dropItem}>
-                      {s.label}
-                    </Link>
-                  ))}
-                  <div className={styles.dropDivider} />
-                  <Link href="/services" className={styles.dropAll}>View All Services →</Link>
-                </div>
-              </div>
-
+              <Link href="/services" className={styles.navBtn}>
+                Services
+              </Link>
               <Link href="/pricing"       className={styles.navLink}>Pricing</Link>
               <Link href="/our-work"      className={styles.navLink}>Our Work</Link>
               <Link href="/testimonials"  className={styles.navLink}>Testimonials</Link>
               <Link href="/about"         className={styles.navLink}>About</Link>
               <Link href="/timeline"      className={styles.navLink}>Timeline</Link>
 
+              {/* Free Tools Dropdown */}
               <div className={styles.dropGroup}>
                 <button className={styles.navBtn}>
                   Free Tools <span className={styles.chevron}>▾</span>
@@ -106,6 +84,7 @@ export default function Navbar() {
                 </div>
               </div>
 
+              {/* Areas Dropdown */}
               <div className={styles.dropGroup}>
                 <button className={styles.navBtn}>
                   Areas <span className={styles.chevron}>▾</span>
@@ -129,6 +108,7 @@ export default function Navbar() {
               Get a Quote
             </Link>
 
+            {/* Hamburger Button */}
             <button
               className={`${styles.hamburger} ${mobileOpen ? styles.hamburgerOpen : ""}`}
               onClick={() => setMobileOpen(o => !o)}
@@ -145,29 +125,14 @@ export default function Navbar() {
       <div className={`${styles.drawer} ${mobileOpen ? styles.drawerOpen : ""}`}>
         <nav className={styles.drawerNav}>
           <Link href="/" className={styles.drawerLink} onClick={close}>Home</Link>
-
-          <div className={styles.drawerAccordion}>
-            <button className={styles.drawerAccBtn} onClick={() => setMobileServices(o => !o)}>
-              Services <span>{mobileServices ? "▴" : "▾"}</span>
-            </button>
-            {mobileServices && (
-              <div className={styles.drawerSub}>
-                {services.map(s => (
-                  <Link key={s.href} href={s.href} className={styles.drawerSubLink} onClick={close}>
-                    {s.label}
-                  </Link>
-                ))}
-                <Link href="/services" className={styles.drawerSubAll} onClick={close}>All Services →</Link>
-              </div>
-            )}
-          </div>
-
+          <Link href="/services" className={styles.drawerLink} onClick={close}>Services</Link>
           <Link href="/pricing"       className={styles.drawerLink} onClick={close}>Pricing</Link>
           <Link href="/our-work"      className={styles.drawerLink} onClick={close}>Our Work</Link>
           <Link href="/testimonials"  className={styles.drawerLink} onClick={close}>Testimonials</Link>
           <Link href="/about"         className={styles.drawerLink} onClick={close}>About</Link>
           <Link href="/timeline"      className={styles.drawerLink} onClick={close}>Timeline</Link>
 
+          {/* Tools Accordion */}
           <div className={styles.drawerAccordion}>
             <button className={styles.drawerAccBtn} onClick={() => setMobileTools(o => !o)}>
               Free Tools <span>{mobileTools ? "▴" : "▾"}</span>
@@ -184,6 +149,7 @@ export default function Navbar() {
             )}
           </div>
 
+          {/* Service Areas Accordion */}
           <div className={styles.drawerAccordion}>
             <button className={styles.drawerAccBtn} onClick={() => setMobileAreas(o => !o)}>
               Service Areas <span>{mobileAreas ? "▴" : "▾"}</span>
